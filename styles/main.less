@@ -1,0 +1,716 @@
+/************************************************************************
+// For extensive details about creating a Populr theme, please visit
+// http://developers.populr.me/theming
+*/
+// You must import variables.less before importing populr_mixins.less
+@import 'variables';
+//adding the pallets
+@import 'palette-custom';
+@import 'palette-default';
+@import 'http://populr.me/assets/developers/populr_mixins.less';
+@import 'preboot';
+@import '//fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic)';
+
+
+// Call preboot.less's reset to reduce browser inconsistencies
+#reset > .global-reset();
+
+/////////////////////////////////////////////////////////////////////////
+// Typography defaults
+
+@text-color: #111;
+// @custom-color is defined in variables.less
+@link-color: @custom-color;
+
+// Title text defaults
+// @headline-font-family is defined in variables.less
+.headline-text() {
+  font-family: @headline-font-family;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.pop-title-text() {
+  font-family: @headline-font-family;
+  font-size: 33px;
+  line-height: 1.1;
+}
+
+// Body text defaults
+//body font family is defined in palette-default.less
+.body-text() {
+  font-family: @body-font-family;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+#pop {
+  font-family: @body-font-family;
+  color: @text-color;
+  i, em {
+    font-style: italic;
+  }
+  b, strong {
+    font-weight: 700;
+  }
+
+  a {
+    color: @link-color;
+
+    &:active, &:hover {
+      color: darken(@link-color, 20%);
+      text-decoration: underline;
+    }
+
+  }
+  .link-btn {
+    //    background-color: #292929 !important;
+    border-radius: 0 !important;
+    font-style: normal;
+    font-size: 15px;
+    letter-spacing: 1px;
+
+    /*&:hover {
+      background-color: @custom-color !important;
+    }*/
+  }
+  .pplr-icon {
+    border-radius: 0 !important;
+    padding: 10px !important;
+  }
+}
+
+.pplr-icon a {
+  #populr > .text-color-over-color(@link-color);
+}
+
+//////Default styles for three font size classes to achieve consistency across assets
+////
+//  size variables for headline fonts
+@large-headline: 24px;
+@medium-headline: 20px;
+@small-headline: 16px;
+
+
+//  size variables for desc fonts
+@large-desc: 16px;
+@medium-desc: 15px;
+@small-desc: 14px;
+.description, .body, .description li, .body li, {
+
+  font-family: @body-font-family;
+  font-size: @medium-desc;
+  line-height: 1.5;
+}
+
+//// End of font size class codes
+
+// End typography defaults
+/////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////
+// Structure
+
+// Content wrapper
+body { background: rgb(245, 245, 245); }
+#pop { margin-top: 10px; }
+#main-content {
+  margin: 0 auto 15px;
+  width: 1075px;
+  background: rgb(245, 245, 245);
+}
+
+//removing top padding from first child
+.columnizer-row:first-child .columnizer-row-inner {
+
+  padding-top: 0;
+  margin-top: 0;
+}
+
+#container-for-logo-title {
+  width: 960px;
+  margin: 0 auto;
+  padding-top: 30px;
+  border-bottom: 12px solid #292929;
+  // Logo helper
+  #logo-box {
+    width: 220px;
+    float: left;
+  }
+  #pop-logo {
+    padding: 50px 25px;
+  }
+
+  // Pop title
+  #pop-title {
+    .pop-title-text();
+    margin: 40px auto 0;
+    width: 690px;
+    float: right;
+    padding: 50px 25px;
+
+    .font-size-smaller, .asset h2 .font-size-smaller {
+      font-size: 15px;
+      line-height: 19px;
+      display: block;
+    }
+  }
+}
+
+#container-for-logo-title > #pop-title {
+  width: 100%;
+  float: none;
+  padding: 50px 0;
+}
+
+// Assets
+
+//default background for all content
+#main-region {
+  width: 960px;
+  margin: 0 auto 10px;
+  padding-bottom: 30px;
+
+}
+
+//check for this margin later
+.description, .body {
+
+  margin: 10px 0;
+  ul, ol {
+    margin: .5em 0 .5em 1.5em;
+  }
+  ul li {
+    list-style-type: disc;
+  }
+  ol li {
+    list-style-type: decimal;
+  }
+
+  .font-size-smaller {
+    color: #444;
+    font-size: 13px;
+  }
+}
+
+
+.asset-title {
+  font-size: 24px;
+  line-height: 1.4;
+  font-family: @headline-font-family;
+  .font-size-larger {
+    font-size: 40px;
+    line-height: 1.6;
+  }
+}
+
+.asset h2 .font-size-smaller {
+  font-size: 18px;
+}
+
+
+//border of the the assets
+//top border for assets
+.columnizer-row-inner {
+
+  .columnizer-row-contents-imagegroup & {
+    border-top: none;
+    padding-top: 0;
+  }
+  .columnizer-row-contents-text & {
+    border-top: none;
+    padding-top: 0;
+  }
+}
+
+//thin border for all size4,3,2 assets
+.asset-size-4, .asset-size-3, .asset-size-2, .asset-size-1 {
+  border-bottom: 1px solid #ccc;
+  &:hover {
+    border-bottom-color: @custom-color;
+  }
+}
+
+.asset-size-1 {
+  border-bottom: 1px solid #ccc;
+}
+
+//sleek border at the end of the page
+.columnizer-row:last-child .columnizer-row-inner {
+
+  margin-bottom: 20px;
+
+}
+
+// Text asset styling
+.asset-type-text {
+
+  &.asset-size-1 {
+    border-top: none;
+  }
+}
+
+// Image asset styling
+
+.my-lightbox-parent{
+  .populr-image-slider{
+    z-index:15;
+  }
+  overflow: visible;
+  position: relative;
+  .my-center{
+    position: absolute;
+    display: table;
+    width:100%;
+    margin-top: -30px ;
+    padding:0;
+    top:50%;
+    left:0;
+    text-align: center;
+    z-index:10;
+    span{
+      padding:20px;
+      height:20px;
+      width:20px;
+      .opacity(0);
+      display: inline-block;
+      .border-radius(100%);
+      background-color:darken(@link-color,20%);
+      .icon{
+        position: relative;
+        top: -2px;
+        left: 1px;
+        text-align: center;
+        color: white;
+        font-size:25px;
+        font-style: normal!important;
+
+      }
+    }
+  }
+  &:hover .populr-image-slider{.opacity(70)}
+  &:hover span{.opacity(100)}
+}
+
+#populr > #image-slider-themes > .basic();
+
+//special border at top for size1 image with only one image within
+.one-image {
+  padding-top: 20px;
+  margin-top: -20px;
+}
+
+/*.hover-icon {
+  position: absolute;
+  left: 22%;
+  top: 38%;
+  z-index: 2000;
+  color: white;
+  i {
+    font-style: normal !important;
+  }
+  visibility: hidden;
+}*/
+
+.asset-type-imagegroup {
+  .lt-ie9 .cycle-pager {
+    display: none;
+  }
+
+  .asset-title {
+    // padding: 12px 10px;
+    padding: 10px 25px;
+    background: #444;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #FFF;
+    margin-bottom: 0;
+  }
+
+  .description {
+    background: #EBE9E4;
+    // padding: 15px 10px;
+    padding: 25px;
+    margin: 0;
+  }
+
+  .populr-image-slider .slideshow {
+    overflow: visible !important;
+    width: 100% !important;
+    .slide {
+      width: 100% !important;
+      .fancybox {
+        cursor: pointer;
+        width: 100%;
+      }
+
+      img {
+        width: 100% !important;
+        height: auto;
+      }
+    }
+
+    .cycle-pager {
+
+      z-index: 2000;
+      // background: #111;
+      // background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      bottom: 10px;
+      font-family: Verdana, sans-serif;
+      background: rgba(255, 255, 255, 0.58);
+
+      span {
+        padding: 0 3px;
+        margin-top: -2px;
+        -webkit-transform: scale(.8);
+        -moz-transform: scale(.8);
+        -ms-transform: scale(.8);
+        -o-transform: scale(.8);
+        transform: scale(.8);
+
+      }
+      span.cycle-pager-active {
+
+        cursor: default;
+
+      }
+    }
+  }
+
+  .populr-image-slider .slideshow .slide a {
+    width: 100%;
+    height: auto;
+  }
+  //    end line of bullet
+
+  &.asset-size-1 {
+    padding-bottom: 15px !important;
+    .slideshow .cycle-pager { bottom: -30px !important; }
+  }
+
+  &.asset-size-2 {
+
+    .left {
+      width: 47%;
+      float: left;
+    }
+    color: #111;
+
+    .asset-inner:after {
+      visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: ' ';
+      clear: both;
+      height: 0;
+    }
+
+    .floated-parent-for-imagegroup-texts {
+      float: right;
+
+      width: 49%;
+
+    }
+
+  }
+}
+
+//Embed asset styling
+.asset-type-embedgroup {
+
+  .asset-title {
+    // padding: 12px 10px;
+    padding: 5px 25px;
+    background: #444;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #FFF;
+    margin-bottom: 0;
+  }
+
+  .description {
+    background: #EBE9E4;
+    // padding: 15px 10px;
+    padding: 25px;
+    margin: 0;
+  }
+
+  .embed-loading { width: 100% !important; }
+}
+
+
+// Document asset styling
+.asset-type-documentgroup {
+
+  // padding-right: 20px;
+  // padding-left: 20px;
+  &.asset-size-1 { margin-top: 5px !important; }
+
+  // background-color: #EBE9E4 !important;
+  &.columnizer-cols2, &.columnizer-cols3, &.columnizer-cols4 { padding-top: 0; }
+
+  .asset-title {
+    padding: 5px 25px;
+    background: #444;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #FFF;
+    margin-bottom: 0;
+  }
+
+  .description {
+    background: #EBE9E4;
+    padding: 25px;
+    margin: 0;
+  }
+
+  i.icon {
+    padding-top: 5px;
+    font-size: 120px;
+    line-height: 1.2;
+    font-style: normal !important;
+
+  }
+  .centered-icon {
+    text-align: center;
+    width: auto;
+    color: #666;
+  }
+
+  .documents {
+
+    margin: 20px auto 0;
+
+    li {
+
+      margin: 5px;
+      padding-top: 5px;
+      text-align: left;
+
+      a {
+        text-decoration: none;
+        line-height: 1.2;
+        color: @text-color !important;
+
+        i.icon {
+          font-size: 20px;
+          font-style: normal !important;
+          padding-right: 6px;
+          color: @link-color;
+        }
+      }
+    }
+  }
+  &.asset-size-1 {
+
+  }
+}
+
+#pop-links {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+
+  background-color: #333;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px 0;
+  z-index: 200;
+  margin: 0 0;
+
+  // webicon styling
+  // .populr-webicon {
+  //   box-shadow: none !important;
+  //   border-radius: 0 !important;;
+  //   margin-top: 10px;
+  // }
+  // .unknown-service {
+  //   background-color: inherit;
+  // }
+
+}
+
+// follow page banner fix
+.pplr-follow-pane {
+  margin-right: 39px;
+}
+
+
+// Clearfix
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: ' ';
+  clear: both;
+  height: 0;
+}
+
+* html .clearfix {
+  zoom: 1;
+}
+
+/* IE6 */
+*:first-child + html .clearfix {
+  zoom: 1;
+}
+
+
+.lt-ie8 {
+  .columnizer-col4 { width: 23%; }
+}
+
+// End structure
+/////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////
+// Mobile
+//
+// The Populr mobile reset will handle some of the basics of mobilizing 
+// your theme, such as stacking all of the assets vertically and scaling 
+// them to 100% of the width of their container. However, you'll have to 
+// fine tune the styling to make your theme look really good on mobile
+// devices.
+
+@media screen and (max-width: 960px) {
+  #populr > .mobile-reset();
+
+  .font-size-larger {
+    font-size: 26px !important;
+    line-height: 1.2 !important;
+  }
+
+  .asset-type-imagegroup.asset-size-1 {
+    padding-bottom: 30px !important;
+  }
+
+  // Edit the grid for mobile
+  .columnizer-row-inner {
+    //    max-width: 640px;
+    max-width: 80%;
+  }
+
+  .columnizer-row-inner div:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  //  logo mobile fix
+  #container-for-logo-title {
+    width: 76%;
+    padding-left:12%;
+    padding-right: 12%;
+    #pop-logo {
+      margin:0 auto;
+    }
+    #pop-title {
+      padding-top:20px;
+      font-size: 32px;
+      line-height: 1.4;
+      margin:0 0;
+    }
+  }
+
+  .columnizer-col {
+    margin: 0 0 20px !important;
+  }
+
+
+  // Edit the typography for mobile
+  .asset-title {
+    font-size: 24px !important;
+  }
+
+  .description, .body, .description li, .body li {
+    font-size: 14px !important;
+    i.icon {
+      font-size: 20px;
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+  }
+
+  .asset-title, .description, .body, .description li, .body li {
+    text-align: left !important;
+  }
+
+
+  .asset-type-imagegroup {
+    &.asset-size-1 {
+      .slideshow {
+        // margin-top: 30px;
+      }
+    }
+  }
+
+//  pop links styling
+  #pop-links {
+    padding-bottom: 10px;
+    position: static;
+    width: auto;
+    li { padding: 5px; }
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+
+  #container-for-logo-title #pop-title {
+    font-size: 22px !important;
+    .font-size-larger {
+      font-size: 1.2em !important;
+    }
+    .font-size-smaller {
+      font-size: 0.8em !important;
+      line-height: 1.2 !important;
+    }
+  }
+
+  #container-for-logo-title {
+    width: 86%;
+    padding-left: 7%;
+    padding-right: 7%;
+
+    #logo-box {
+      float: none;
+      width: auto !important;
+    }
+
+    #pop-logo {
+      margin-bottom: 0;
+    }
+
+  }
+  .font-size-larger { font-size: 1.2em !important; }
+  .font-size-smaller { font-size: 0.8em !important; }
+
+  .columnizer-row-inner { max-width: 95% !important; }
+  .columnizer-row { margin: 10px 0 10px 10px !important; }
+
+  .asset { border-bottom: none !important; }
+
+  .asset-title {
+    font-size: 20px !important;
+  }
+
+  //  image assets styling
+  .asset-type-imagegroup {
+    &.asset-size-2 {
+      .left {
+        width:100%;
+        float:none;
+      }
+      .floated-parent-for-imagegroup-texts {
+        width:100%;
+        float:none;
+      }
+    }
+
+  }
+
+  //end of image asset styling
+  //  embed assets styling
+
+  //end of embed asset styling
+
+}
