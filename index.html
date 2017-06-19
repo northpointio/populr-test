@@ -14,7 +14,12 @@
   <script id="theme" type="text/x-handlebars-template">
     <header id="header">
       <div class="logo">
-        <a href="#"><!--{{logo}}--><img alt="logo" title="logo" src="{{{base_path}}}/images/logo.png"></a>
+        <a href="#">
+        {{#if logo}}
+        {{logo}}
+        {{else}}
+        <img alt="logo" title="logo" src="{{{base_path}}}/images/logo.png">
+        {{/if}}</a>
       </div>
     </header>
 
