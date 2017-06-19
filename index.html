@@ -14,12 +14,12 @@
   <script id="theme" type="text/x-handlebars-template">
     <header id="header">
       <div class="logo">
-        <a href="#"><!--{{logo}}--><img alt="logo" title="logo" src="images/logo.png"></a>
+        <a href="#"><!--{{logo}}--><img alt="logo" title="logo" src="{{{base_path}}}/images/logo.png"></a>
       </div>
     </header>
 
     <section class="hero">
-      <img alt="hero" title="hero" width="100%" src="images/hero.jpg">
+      <img alt="hero" title="hero" width="100%" src="{{{base_path}}}/images/hero.jpg">
     </section>
 
       {{#region "columnizer" id="donate" max_cols="3" max_auto_assets="0" dummy_content="T-1|T-1,T-2|T-1,T-2,T-3"}}
