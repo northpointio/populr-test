@@ -22,24 +22,10 @@
       <img alt="hero" title="hero" width="100%" src="{{{base_path}}}/images/hero.jpg">
     </section>
 
-      {{#region "columnizer" id="donate" max_cols="3" max_auto_assets="0" dummy_content="T-1|T-1,T-2|T-1,T-2,T-3"}}
-        {{#asset "text" size="1"}}
-          {{{title}}}
-          <div class="content">
-            {{{body}}}
-          </div>
-        {{/asset}}
-
-        {{#asset "text" size="2"}}
-          {{{title}}}
-          <div class="content">
-            {{{body}}}
-          </div>
-        {{/asset}}
-
+      {{#region "columnizer" id="donate" max_cols="3" max_auto_assets="0" dummy_content="T-1,T-1,T-1"}}
         {{#asset "text" size="3"}}
-          {{{title}}}
           <div class="content">
+            {{{title}}}
             {{{body}}}
           </div>
         {{/asset}}
